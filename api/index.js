@@ -10,7 +10,9 @@ const app = express();
 //   }));
 
 app.get('/', (req, res)=>{
-    res.send('<h1>Welcome</h1>')
+    res.send({
+            message: 'Welcome to this API.',
+          })
 })
 
 const port = process.env.PORT || 8000;
