@@ -8,6 +8,9 @@
     "start": "nodemon --exec babel-node ./src/server.js",
     "watch:dev": "nodemon ./src/server.js",
     "build": "rm -rf ./build && babel -d ./build ./src -s",
+    "lint": "eslint --ext .js .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
     "test": "set NODE_ENV=test  sequelize db:migrate:undo:all  sequelize db:migrate && nyc --require @babel/register mocha ./api/test/test.js --timeout 20000 --exit",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "coveralls-coverage": "coveralls < lcov.info",
@@ -23,6 +26,7 @@
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.6",
     "@babel/node": "^7.19.1",
@@ -36,8 +40,11 @@
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin": "^1.0.1",
+    "prettier": "^2.7.1",
     "mocha": "^10.1.0",
-    "nyc": "^15.1.0",
-    "nodemon": "^2.0.20"
+    "nyc": "^15.1.0"
   }
 }
