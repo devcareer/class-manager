@@ -14,7 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ClassTeacher.init({
-    classId: DataTypes.STRING
+    id:{
+      type: DataTypes.UUID,
+      allowNull:false
+    },
+    teacherId:{
+      type: DataTypes.UUID,
+      allowNull:false
+    },
+    classId: {
+      type: DataTypes.UUID,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'ClassTeacher',
