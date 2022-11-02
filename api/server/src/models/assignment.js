@@ -23,11 +23,11 @@ module.exports = (sequelize, DataTypes) => {
        allowNull:false
     },
     classId:{
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       allowNull:false
    },
    studentId:{
-    type: DataTypes.STRING,
+    type: DataTypes.UUID,
     allowNull:false
   }
   }, {
