@@ -14,7 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Notice.init({
-    notice: DataTypes.STRING
+    notice: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    classId: {
+      type: DataTypes.UUID,
+      allowNull:false
+    },
+    teacherId: {
+      type: DataTypes.UUID,
+      allowNull:false
+    }
   }, {
     sequelize,
     modelName: 'Notice',
