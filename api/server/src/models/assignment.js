@@ -14,7 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Assignment.init({
-    assignment: DataTypes.STRING
+    id:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
+    assignment:{
+       type: DataTypes.STRING,
+       allowNull:false
+    },
+    classId:{
+      type: DataTypes.STRING,
+      allowNull:false
+   },
+   studentId:{
+    type: DataTypes.STRING,
+    allowNull:false
+  }
   }, {
     sequelize,
     modelName: 'Assignment',

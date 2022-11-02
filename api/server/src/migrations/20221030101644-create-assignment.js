@@ -12,6 +12,14 @@ module.exports = {
       assignment: {
         type: Sequelize.STRING
       },
+      classId:{
+        type: Sequelize.STRING,
+        allowNull:false
+     },
+     studentId:{
+      type: Sequelize.STRING,
+      allowNull:false
+    },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -9,8 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      assignment: {
-        type: Sequelize.STRING
+      assignmentId: {
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      score: {
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      studentId: {
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      teacher: {
+        type:Sequelize.STRING,
+        allowNull:false
       },
       createdAt: {
         allowNull: false,
