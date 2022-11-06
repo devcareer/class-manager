@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       unique:true
     },
     studentId:{
-      type: DataTypes.UUID4,
+      type: DataTypes.UUID,
       allowNull:false
     },
     classId: {
