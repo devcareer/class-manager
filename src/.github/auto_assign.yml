@@ -1,0 +1,15 @@
+addReviewers: true
+addAssignees: false
+reviewers:
+    - bellogo
+    - talktonok
+    - TijanAyo
+    - Hazeem01
+
+numberOfReviewers: 0
+assignees:
+    - bellogo
+    - talktonok
+    - TijanAyo
+    - Hazeem01
+numberOfAssignees: 0
