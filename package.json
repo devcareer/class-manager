@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "set NODE_ENV=test  sequelize db:migrate:undo:all  sequelize db:migrate && nyc --require @babel/register mocha ./api/test/test.js --timeout 20000 --exit",
+    "test": "set NODE_ENV=test  sequelize db:migrate:undo:all  sequelize db:migrate && nyc --require @babel/register mocha ./src/api/test/test.js --timeout 20000 --exit",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "coveralls-coverage": "coveralls < lcov.info",
     "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
