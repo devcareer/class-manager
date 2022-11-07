@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Assignment.belongsTo(models.User, {foreignKey: 'teacherId', as:   'teacher'});
+      Assignment.belongsTo(models.User, {foreignKey: 'studentId', as:   'student'});
+      Assignment.belongsTo(models.Class, {foreignKey: 'classId', as:   'class'});
     }
   }
   Assignment.init({
@@ -26,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull:false
    },
+   teacherId:{
+    type: DataTypes.UUID,
+    allowNull:false
+ },
    studentId:{
     type: DataTypes.UUID,
     allowNull:false
