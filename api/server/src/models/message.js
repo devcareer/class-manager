@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Class.belongsTo(models.User, {foreignKey: 'sender', as: 'sender'});
+      Class.belongsTo(models.User, {foreignKey: 'receiver', as: 'receiver'});
     }
   }
   Message.init({
