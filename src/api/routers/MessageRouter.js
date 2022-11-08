@@ -3,10 +3,10 @@ import MessageController from '../controllers/MessageController.js';
 
 const messageRouter = Router();
 
-router.get('/', MessageController.getAllMessages);
-router.post('/', MessageController.addMessage);
-router.get('/:id', MessageController.getAMessage);
-router.put('/:id', MessageController.updatedMessage);
-router.delete('/:id', MessageController.deleteMessage);
+messageRouter.get('/', MessageController.getAllMessages);
+messageRouter.post('/', MessageController.addMessage);
+messageRouter.get('/:id', MessageController.getAMessage);
+messageRouter.put('/:id', MessageController.updatedMessage);
+messageRouter.delete('/:id', MessageController.deleteMessage);
 
 export default messageRouter;

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Class.hasMany(models.ClassStudent, {as: 'student'});
+      // Class.hasMany(models.ClassStudent, {as: 'student'});
       Class.hasMany(models.User, {as: 'teacher'});
 
     }
@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   Class.init({
     id:{
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     className: {
       type:DataTypes.STRING,

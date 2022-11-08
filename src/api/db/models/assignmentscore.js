@@ -12,18 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       AssignmentScore.belongsTo(models.Assignment, {foreignKey:'assignmentId', as: 'assignment'});
-      AssignmentScore.belongsTo(models.User, {foreignKey: 'studentId', as: 'student'});
+      // AssignmentScore.belongsTo(models.User, {foreignKey: 'studentId', as: 'student'});
       AssignmentScore.belongsTo(models.User, {foreignKey: 'teacherId', as: 'teacher'});
     }
   }
   AssignmentScore.init({
     id:{
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     assignmentId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
     score: {
       type:DataTypes.STRING,
@@ -31,11 +33,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     studentId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
     teacherId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     }
   }, {
     sequelize,

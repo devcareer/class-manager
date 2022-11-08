@@ -20,7 +20,7 @@ class MessageController {
   }
 
   static async addMessage(req, res) {
-    if (!req.body.title || !req.body.price || !req.body.description) {
+    if (!req.body.message || !req.body.senderId || !req.body.receiverId) {
       util.setError(400, 'Please provide complete details');
       return util.send(res);
     }

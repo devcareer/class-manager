@@ -1,4 +1,4 @@
-import database from '../db/models';
+import database from '../db/models/index.js';
 
 class MessageService {
   static async getAllMessages() {
