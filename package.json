@@ -1,9 +1,8 @@
 {
   "name": "class-manager",
-    "version": "1.0.0",
-    "description": "",
-    "main": "./src/server.js",
-    
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
   "scripts": {
     "start": "nodemon --exec babel-node ./src/server.js",
     "watch:dev": "nodemon ./src/server.js",
@@ -26,7 +25,6 @@
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.6",
     "@babel/node": "^7.19.1",
@@ -39,12 +37,13 @@
     "chai-http": "^4.3.0",
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin": "^1.0.1",
-    "prettier": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "mocha": "^10.1.0",
-    "nyc": "^15.1.0"
+    "nodemon": "^2.0.20",
+    "nyc": "^15.1.0",
+    "prettier": "^2.7.1"
   }
 }
