@@ -1,23 +1,32 @@
+require('dotenv').config();
 module.exports = {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  development: {
+    database: "classManager",
+    username: "postgres",
+    password: "123456789",
+    host: "127.0.0.1",
+    dialect: "postgres"
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  local: {
+    "username": "tgsowrsnnwphjg",
+    "password": "da09381ea24589af12153a9aca04de1d9283245434520ba084ccc6b55065520d",
+    "database": "d3a0e6i6blrn6p",
+    "host": "https://ec2-3-227-68-43.compute-1.amazonaws.com",
+    "dialect": "postgres"
   },
-  "production": {
+  test: {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "classManager_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
+  },
+  production: {
+    "username": "tgsowrsnnwphjg",
+    "password": "da09381ea24589af12153a9aca04de1d9283245434520ba084ccc6b55065520d",
+    "database": "d3a0e6i6blrn6p",
+    "host": "ec2-3-227-68-43.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
-}
+};
+//export default config;

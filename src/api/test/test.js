@@ -1,8 +1,9 @@
-require ('chai').should()
+//require ('chai').should()
+import './chaa.js';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 //import './chai/register-should';
-import app from '../index';
+import app from '../../index.js';
 
 chai.use(chaiHttp);
 const { expect } = chai;
