@@ -1,23 +1,32 @@
+
 module.exports = {
-  "development": {
+  development: {
+    database: 'development_database',
+    username: 'root',
+    password: null,
+    host: '127.0.0.1',
+    dialect: 'postgres'
+    },
+    local: {
     "username": "root",
     "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "local_database",
+    "host": "",
+    "dialect": "postgres"
   },
-  "test": {
+  test: {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "test_database",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
-  "production": {
+  production: {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "production_database",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
-}
+};
+//export default config;
