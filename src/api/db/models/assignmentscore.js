@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       AssignmentScore.belongsTo(models.Assignment, {foreignKey:'assignmentId', as: 'assignment'});
-      // AssignmentScore.belongsTo(models.User, {foreignKey: 'studentId', as: 'student'});
+      AssignmentScore.belongsTo(models.User, {foreignKey: 'studentId', as: 'student'});
       AssignmentScore.belongsTo(models.User, {foreignKey: 'teacherId', as: 'teacher'});
     }
   }
