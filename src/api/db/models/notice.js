@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Notice.init({
+    id: {
+      allowNull: false,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
     notice: {
       type:DataTypes.STRING,
       allowNull:false,

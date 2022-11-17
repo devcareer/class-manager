@@ -15,10 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ClassTeacher.init({
-    id:{
+    id: {
+      allowNull: false,
+      primaryKey: true,
       type: DataTypes.UUID,
-      allowNull:false,
-      primaryKey: true
+      defaultValue: DataTypes.UUIDV4
     },
     teacherId:{
       type: DataTypes.UUID,
