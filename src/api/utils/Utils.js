@@ -34,4 +34,12 @@ export default class Util {
         message: this.message,
       });
     }
+
+    checkIfValidUUID(str) {
+      // Regular expression to check if string is a valid UUID
+      const regexExp = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+      // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+    
+      return regexExp.test(str);
+    }
   }
