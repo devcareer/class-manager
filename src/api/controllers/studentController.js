@@ -24,7 +24,7 @@ class StudentController {
   }
 
   static async addStudent(req, res) {
-    if (!req.body.Student || !req.body.senderId || !req.body.receiverId) {
+    if (!req.body.first_name) {
       util.setError(400, 'Please provide complete details of the student');
       return util.send(res);
     }

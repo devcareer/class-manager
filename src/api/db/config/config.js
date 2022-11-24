@@ -1,11 +1,13 @@
-require('dotenv').config();
+// import './newConfig'
+// require ('dotenv').config();
+
 module.exports = {
-  development: {
-    database: "classManager",
-    username: "postgres",
-    password: "123456789",
-    host: "127.0.0.1",
-    dialect: "postgres"
+  "development": {
+    "username": "postgres",
+    "password": "123456789",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
   local: {
     "username": "tgsowrsnnwphjg",
