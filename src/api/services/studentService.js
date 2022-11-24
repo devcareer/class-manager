@@ -26,7 +26,7 @@ class StudentService {
       });
 
       if (studentToUpdate) {
-        await database.Student.update(updateStudent, { where: { id: Number(id) } });
+        await database.User.update(updateStudent, { where: { id: Number(id) } });
 
         return updateStudent;
       }

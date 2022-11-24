@@ -1,12 +1,12 @@
-// import './newConfig'
-// require ('dotenv').config();
+import config from '../../../../config.js'
+require ('dotenv').config();
 
 module.exports = {
   "development": {
-    "username": "postgres",
-    "password": "123456789",
-    "database": "postgres",
-    "host": "127.0.0.1",
+    "username": config.username,
+    "password": config.password,
+    "database": config.database,
+    "host": config.host,
     "dialect": "postgres"
   },
   local: {
@@ -31,4 +31,3 @@ module.exports = {
     "dialect": "postgres"
   }
 };
-//export default config;

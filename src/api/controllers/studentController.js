@@ -34,7 +34,7 @@ class StudentController {
       util.setSuccess(201, 'Student Added Successfully!', createdStudent);
       return util.send(res);
     } catch (error) {
-      util.setError(400, error.Student);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }
