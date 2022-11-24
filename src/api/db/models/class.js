@@ -11,11 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-<<<<<<< HEAD
-      Class.hasMany(models.ClassStudent, {as: 'student'});
-=======
       // Class.hasMany(models.ClassStudent, {as: 'student'});
->>>>>>> 8f085e4edb2023272ebca0171aabbffe9a8178dd
       Class.hasMany(models.User, {as: 'teacher'});
 
     }

@@ -14,13 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Assignment, {foreignKey: 'assignmentId', as: 'assignment'})
       User.hasMany(models.AssignmentScore, {foreignKey: 'assignmentScoreId', as: 'assignmentScore'})
-<<<<<<< HEAD
-      User.belongsTo(models.Message, {foreignKey: 'sender', as: 'sender'});
-      User.belongsTo(models.Message, {foreignKey: 'receiver', as: 'receiver'});
-=======
       User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
->>>>>>> 8f085e4edb2023272ebca0171aabbffe9a8178dd
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
     }
   }

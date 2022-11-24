@@ -11,11 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-<<<<<<< HEAD
-      Assignment.belongsTo(models.User, {foreignKey: 'teacherId', as:   'teacher'});
-=======
       // Assignment.belongsTo(models.User, {foreignKey: 'teacherId', as:   'teacher'});
->>>>>>> 8f085e4edb2023272ebca0171aabbffe9a8178dd
       Assignment.belongsTo(models.User, {foreignKey: 'studentId', as:   'student'});
       Assignment.belongsTo(models.Class, {foreignKey: 'classId', as:   'class'});
     }
@@ -37,12 +33,8 @@ module.exports = (sequelize, DataTypes) => {
    },
    teacherId:{
     type: DataTypes.UUID,
-<<<<<<< HEAD
-    allowNull:false
-=======
     allowNull:false,
     foreignKey:true
->>>>>>> 8f085e4edb2023272ebca0171aabbffe9a8178dd
  },
    studentId:{
     type: DataTypes.UUID,
