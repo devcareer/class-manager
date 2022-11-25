@@ -22,11 +22,11 @@ class TeacherService {
   static async updateTeacher(id, updateTeacher) {
     try {
       const teacherToUpdate = await database.ClassTeacher.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       if (teacherToUpdate) {
-        await database.ClassTeacher.update(updateTeacher, { where: { id: Number(id) } });
+        await database.ClassTeacher.update(updateTeacher, { where: { id: id } });
 
         return updateTeacher;
       }
@@ -36,10 +36,10 @@ class TeacherService {
     }
   }
 
-  static async getAllTeachers(id) {
+  static async getATeacher(id) {
     try {
       const allTeacher = await database.ClassTeacher.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       return allTeacher;
@@ -50,11 +50,11 @@ class TeacherService {
 
   static async deleteTeacher(id) {
     try {
-      const TeacherToDelete = await database.ClassTeacher.findOne({ where: { id: Number(id) } });
+      const TeacherToDelete = await database.ClassTeacher.findOne({ where: { id: id } });
 
       if (TeacherToDelete) {
         const deletedTeacher = await database.ClassTeacher.destroy({
-          where: { id: Number(id) }
+          where: { id: id }
         });
         return deletedTeacher;
       }

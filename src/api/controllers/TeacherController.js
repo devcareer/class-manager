@@ -15,7 +15,7 @@ class teacherController {
       if (allTeacher.length > 0) {
         util.setSuccess(200, 'teachers retrieved', allTeacher);
       } else {
-        util.setSuccess(200, 'No teahcer found in the database');
+        util.setFound(400, 'No teahcer found in the database');
       }
       return util.send(res);
     } catch (error) {
@@ -43,8 +43,8 @@ class teacherController {
   static async updatedTeacher(req, res) {
     const alteredTeacher = req.body;
     const { id } = req.params;
-    if (!Number(id)) {
-      util.setError(400, 'Please input a valid numeric value');
+    if (!util.checkIfValidUUID(id)) {
+      util.setError(400, 'Please input a valid Id');
       return util.send(res);
     }
     try {

@@ -18,6 +18,13 @@ export default class Util {
       this.message = message;
       this.type = 'error';
     }
+    
+    setFound(statusCode, message, data){
+      this.statusCode = statusCode;
+      this.message = message;
+      this.data = data;
+      this.type = "Record not found"
+    }
   
     send(res) {
       const result = {
