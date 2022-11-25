@@ -12,6 +12,16 @@ module.exports = {
       message: {
         type: Sequelize.STRING
       },
+      senderId:{
+        type:Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
+      receiverId:{
+        type:Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

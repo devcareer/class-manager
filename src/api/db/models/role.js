@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Role.init({
     id:{
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     role: {
       type: DataTypes.UUID,

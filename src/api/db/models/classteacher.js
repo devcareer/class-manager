@@ -10,22 +10,26 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Class.belongsTo(models.Class, {foreignKey: 'classId', as: 'class'});
-      Class.belongsTo(models.User, {foreignKey: 'teacherId', as: 'teacher'});
+      ClassTeacher.belongsTo(models.Class, {foreignKey: 'classId', as: 'class'});
+      ClassTeacher.belongsTo(models.User, {foreignKey: 'teacherId', as: 'teacher'});
     }
   }
   ClassTeacher.init({
     id:{
       type: DataTypes.UUID,
-      allowNull:false
+      defaultValue:DataTypes.UUIDV4,
+      allowNull:false,
+      primaryKey: true
     },
     teacherId:{
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
     classId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     }
   }, {
     sequelize,
