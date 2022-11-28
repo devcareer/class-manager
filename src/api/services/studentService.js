@@ -9,7 +9,7 @@ class StudentService {
       throw error;
     }
   }
-
+  
   static async addStudent(newStudent) {
     try {
       const result = await database.User.create(newStudent);
