@@ -22,11 +22,11 @@ class StudentService {
   static async updateStudent(id, updateStudent) {
     try {
       const studentToUpdate = await database.User.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       if (studentToUpdate) {
-        await database.User.update(updateStudent, { where: { id: Number(id) } });
+        await database.User.update(updateStudent, { where: { id: id } });
 
         return updateStudent;
       }
@@ -39,7 +39,7 @@ class StudentService {
   static async getAStudent(id) {
     try {
       const aStudent = await database.User.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       return aStudent;
@@ -50,11 +50,11 @@ class StudentService {
 
   static async deleteStudent(id) {
     try {
-      const StudentToDelete = await database.User.findOne({ where: { id: Number(id) } });
+      const StudentToDelete = await database.User.findOne({ where: { id: id } });
 
       if (StudentToDelete) {
         const deletedStudent = await database.User.destroy({
-          where: { id: Number(id) }
+          where: { id: id }
         });
         return deletedStudent;
       }
