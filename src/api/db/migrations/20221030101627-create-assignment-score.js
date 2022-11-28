@@ -17,11 +17,12 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull:false
       },
-      studentId: {
-        type:Sequelize.STRING,
-        allowNull:false
+      teacherId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
       },
-      teacher: {
+      studentId: {
         type:Sequelize.STRING,
         allowNull:false
       },

@@ -6,11 +6,24 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.UUID
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
+      },
+      lastName: {
+        allowNull: false, 
+        type:Sequelize.STRING
+      },
+      secondName: Sequelize.STRING,
+      email: {
+        type:Sequelize.STRING,
+        unique:true,
+        allowNull:false
+      },
+      password: {
+        type:Sequelize.STRING,
+        allowNull:false
       },
       createdAt: {
         allowNull: false,

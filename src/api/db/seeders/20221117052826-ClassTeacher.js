@@ -1,6 +1,18 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
+const faker = require('faker')
+
+faker.seed(123);
+const classTeachers = [...Array(100)].map((classTeacher) => (
+  {
+    id: faker.datatype.uuid(),
+    teacherId: faker.datatype.uuid(),
+    classId: faker.datatype.uuid(),
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+))
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -12,6 +24,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    return await queryInterface.bulkInsert('ClassTeachers', classTeachers, {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +34,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     return await queryInterface.bulkDelete('ClassTeachers', null, {});
   }
 };

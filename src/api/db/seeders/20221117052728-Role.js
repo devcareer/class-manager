@@ -12,6 +12,24 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+     await queryInterface.bulkInsert('Roles', [{
+      id: "c7a9122e-6694-11ed-9022-0242ac120001",
+      role: 'Admin',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+     id: "c7a9122e-6694-11ed-9022-0242ac120002",
+     role: 'Student',
+     createdAt: new Date(),
+     updatedAt: new Date()
+   },
+   {
+    id: "c7a9122e-6694-11ed-9022-0242ac120003",
+    role: 'Teacher',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }], {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +39,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     await queryInterface.bulkDelete('Roles', null, {});
   }
 };

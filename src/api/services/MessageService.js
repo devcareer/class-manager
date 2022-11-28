@@ -3,7 +3,7 @@ import database from '../db/models/index.js';
 class MessageService {
   static async getAllMessages() {
     try {
-        const result = await database.Message.findAll();
+      const result = await database.Message.findAll();
       return result;
     } catch (error) {
       throw error;
@@ -12,7 +12,7 @@ class MessageService {
 
   static async addMessage(newMessage) {
     try {
-        const result = await database.Message.create(newMessage);
+      const result = await database.Message.create(newMessage);
       return result;
     } catch (error) {
       throw error;

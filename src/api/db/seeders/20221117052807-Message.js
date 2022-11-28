@@ -1,7 +1,21 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
+const faker = require('faker')
+
+faker.seed(123);
+const messages = [...Array(100)].map((message) => (
+  {
+    id: faker.datatype.uuid(),
+    message: faker.lorem.sentence(),
+    senderId: faker.datatype.uuid(),
+    receiverId: faker.datatype.uuid(),
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+))
 module.exports = {
+  
   async up (queryInterface, Sequelize) {
     /**
      * Add seed commands here.
@@ -12,6 +26,8 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+   return await queryInterface.bulkInsert('Messages', messages, {});
+   
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +37,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     return await queryInterface.bulkDelete('Messages', null, {});
   }
 };

@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull:false
      },
+     teacherId:{
+      type: Sequelize.UUID,
+      allowNull:false
+   },
      studentId:{
       type: Sequelize.STRING,
       allowNull:false

@@ -12,6 +12,16 @@ module.exports = {
       notice: {
         type: Sequelize.STRING
       },
+      classId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
+      teacherId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
