@@ -5,9 +5,9 @@ module.exports = {
     await queryInterface.createTable('Messages', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUID4 
       },
       message: {
         type: Sequelize.STRING
