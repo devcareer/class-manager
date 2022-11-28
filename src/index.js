@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import messageRouter from "./api/routers/MessageRouter.js";
-import { studentRouter } from './api/routers/studentsRoutes.js';
+import messageRouter from "./routers/MessageRouter.js";
+import { studentRouter } from './routers/studentsRoutes.js';
 const app = express();
 dotenv.config();
 
