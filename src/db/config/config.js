@@ -1,6 +1,7 @@
-import config from '../../../config.js'
+'use strict';
+const  config = require('../../../config.js')
 
-export default {
+module.exports = {
   "development": {
     "username": config.username,
     "password": config.password,
