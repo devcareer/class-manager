@@ -1,7 +1,6 @@
-import config from '../../../../config.js'
-require ('dotenv').config();
+import config from '../../../config.js'
 
-module.exports = {
+export default {
   "development": {
     "username": config.username,
     "password": config.password,
