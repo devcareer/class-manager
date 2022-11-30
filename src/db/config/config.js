@@ -1,13 +1,15 @@
+'use strict';
+const  config = require('../../../config.js')
 
 module.exports = {
-  development: {
-    database: 'classManager',
-    username: 'postgres',
-    password: "123456789",
-    host: '127.0.0.1',
-    dialect: 'postgres'
-    },
-    local: {
+  "development": {
+    "username": config.username,
+    "password": config.password,
+    "database": config.database,
+    "host": config.host,
+    "dialect": "postgres"
+  },
+  local: {
     "username": "tgsowrsnnwphjg",
     "password": "da09381ea24589af12153a9aca04de1d9283245434520ba084ccc6b55065520d",
     "database": "d3a0e6i6blrn6p",
@@ -29,4 +31,3 @@ module.exports = {
     "dialect": "postgres"
   }
 };
-//export default config;

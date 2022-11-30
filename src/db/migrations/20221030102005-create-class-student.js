@@ -1,24 +1,18 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Messages', {
+    await queryInterface.createTable('ClassStudents', {
       id: {
         allowNull: false,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      studentId:{
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
-      }, 
-      message: {
-        type: Sequelize.STRING
-      },
-      senderId:{
-        type:Sequelize.UUID,
-        allowNull:false,
-        foreignKey:true
-      },
-      receiverId:{
-        type:Sequelize.UUID,
         allowNull:false,
         foreignKey:true
       },
@@ -33,6 +27,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Messages');
+    await queryInterface.dropTable('ClassStudents');
   }
 };

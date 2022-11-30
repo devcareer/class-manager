@@ -33,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
    },
    teacherId:{
     type: DataTypes.UUID,
-    allowNull:false
+    allowNull:false,
+    foreignKey:true
  },
    studentId:{
     type: DataTypes.UUID,

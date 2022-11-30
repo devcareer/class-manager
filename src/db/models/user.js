@@ -2,7 +2,6 @@
 const {
   Model
 } = require('sequelize');
-const assignment = require('./assignment');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -14,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Assignment, {foreignKey: 'assignmentId', as: 'assignment'})
       User.hasMany(models.AssignmentScore, {foreignKey: 'assignmentScoreId', as: 'assignmentScore'})
-      User.belongsTo(models.Message, {foreignKey: 'sender', as: 'sender'});
-      User.belongsTo(models.Message, {foreignKey: 'receiver', as: 'receiver'});
+      User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
+      User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
     }
   }

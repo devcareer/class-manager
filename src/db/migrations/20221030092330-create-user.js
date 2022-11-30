@@ -11,11 +11,10 @@ module.exports = {
       firstName: {
         type: Sequelize.STRING
       },
-      lastName: {
-        allowNull: false, 
-        type:Sequelize.STRING
+      last_name: {
+        allowNull: false, type:Sequelize.STRING
       },
-      secondName: Sequelize.STRING,
+      second_name: Sequelize.STRING,
       email: {
         type:Sequelize.STRING,
         unique:true,
@@ -23,6 +22,10 @@ module.exports = {
       },
       password: {
         type:Sequelize.STRING,
+        allowNull:false
+      },
+      roleId: {
+        type: Sequelize.UUID,
         allowNull:false
       },
       createdAt: {
