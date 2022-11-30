@@ -7,7 +7,7 @@ dotenv.config();
 
 // Middlewares
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use('/api/message', messageRouter);
 app.use('/api/students', studentRouter);
 
