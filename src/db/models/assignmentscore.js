@@ -19,11 +19,13 @@ module.exports = (sequelize, DataTypes) => {
   AssignmentScore.init({
     id:{
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     assignmentId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
     score: {
       type:DataTypes.STRING,
@@ -31,11 +33,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     studentId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
     teacherId: {
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     }
   }, {
     sequelize,

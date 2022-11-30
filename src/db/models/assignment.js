@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   Assignment.init({
     id:{
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
     },
     assignment:{
        type: DataTypes.STRING,
@@ -27,15 +28,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     classId:{
       type: DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
    },
    teacherId:{
     type: DataTypes.UUID,
-    allowNull:false
+    allowNull:false,
+    foreignKey:true
  },
    studentId:{
     type: DataTypes.UUID,
-    allowNull:false
+    allowNull:false,
+    foreignKey:true
   }
   }, {
     sequelize,

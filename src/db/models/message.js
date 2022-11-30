@@ -11,22 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Class.belongsTo(models.User, {foreignKey: 'sender', as: 'sender'});
-      Class.belongsTo(models.User, {foreignKey: 'receiver', as: 'receiver'});
+      Message.belongsTo(models.User, {foreignKey: 'senderId', as: 'sender'});
+      Message.belongsTo(models.User, {foreignKey: 'receiverId', as: 'receiver'});
     }
   }
   Message.init({
+    id:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
+    },
     message: {
       type:DataTypes.STRING,
-      allowNull:false
+      allowNull:false,
+      primaryKey: true
     },
-    sender:{
+    senderId:{
       type:DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     },
-    receiver:{
+    receiverId:{
       type:DataTypes.UUID,
-      allowNull:false
+      allowNull:false,
+      foreignKey:true
     }
 
   }, {

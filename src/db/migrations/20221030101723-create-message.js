@@ -2,15 +2,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ClassStudents', {
+    await queryInterface.createTable('Messages', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUID4 
       },
-      classId: {
+      message: {
         type: Sequelize.STRING
+      },
+      senderId:{
+        type:Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
+      receiverId:{
+        type:Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
       },
       createdAt: {
         allowNull: false,
@@ -23,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ClassStudents');
+    await queryInterface.dropTable('Messages');
   }
 };
