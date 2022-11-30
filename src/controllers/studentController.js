@@ -24,7 +24,7 @@ class StudentController {
   }
 
   static async addStudent(req, res) {
-    if (!req.body.Student || !req.body.senderId || !req.body.receiverId) {
+    if (!req.body.first_name) {
       util.setError(400, 'Please provide complete details of the student');
       return util.send(res);
     }
@@ -34,7 +34,7 @@ class StudentController {
       util.setSuccess(201, 'Student Added Successfully!', createdStudent);
       return util.send(res);
     } catch (error) {
-      util.setError(400, error.Student);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }
@@ -42,8 +42,8 @@ class StudentController {
   static async updatedStudent(req, res) {
     const alteredStudent = req.body;
     const { id } = req.params;
-    if (!Number(id)) {
-      util.setError(400, 'Please input a valid numeric value');
+    if (!id) {
+      util.setError(400, 'Please input a valid UUID');
       return util.send(res);
     }
     try {
@@ -51,7 +51,7 @@ class StudentController {
       if (!updateStudent) {
         util.setError(404, `Cannot find a Student with the id: ${id}`);
       } else {
-        util.setSuccess(200, 'Student updated', updateStudent);
+        util.setSuccess(200, 'Student updated with the following details', updateStudent);
       }
       return util.send(res);
     } catch (error) {
@@ -63,8 +63,8 @@ class StudentController {
   static async getAStudent(req, res) {
     const { id } = req.params;
 
-    if (!Number(id)) {
-      util.setError(400, 'Please input a valid numeric value');
+    if (!id) {
+      util.setError(400, 'Please input a valid UUID');
       return util.send(res);
     }
 
@@ -86,8 +86,8 @@ class StudentController {
   static async deleteStudent(req, res) {
     const { id } = req.params;
 
-    if (!Number(id)) {
-      util.setError(400, 'Please provide a numeric value');
+    if (!id) {
+      util.setError(400, 'Please provide a valid UUID');
       return util.send(res);
     }
 
@@ -95,7 +95,7 @@ class StudentController {
       const StudentToDelete = await StudentService.deleteStudent(id);
 
       if (StudentToDelete) {
-        util.setSuccess(200, `Student with ${id} deleted`);
+        util.setSuccess(200, `Student with the id: ${id} successfully deleted!`);
       } else {
         util.setError(404, `Student with the id ${id} cannot be found`);
       }

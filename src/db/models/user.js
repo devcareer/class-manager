@@ -2,7 +2,6 @@
 const {
   Model
 } = require('sequelize');
-const assignment = require('./assignment');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
