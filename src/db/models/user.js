@@ -24,13 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    firstName: {
+    first_name: {
       allowNull: false, type:DataTypes.STRING
     },
-    lastName: {
+    last_name: {
       allowNull: false, type:DataTypes.STRING
     },
-    secondName: DataTypes.STRING,
+    second_name: DataTypes.STRING,
     email: {
       type:DataTypes.STRING,
       unique:true,

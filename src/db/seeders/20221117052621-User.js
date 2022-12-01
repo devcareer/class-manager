@@ -15,20 +15,22 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Users', [{
          id: "c7a9122e-6694-11ed-9022-0242ac120005",
-         firstName: 'John',
-         lastName: 'Doe',
-         secondName: 'Nok',
+         first_name: 'John',
+         last_name: 'Doe',
+         second_name: 'Nok',
          email: 'example@example2.com',
+         roleId:'c7a9122e-6694-11ed-9022-0242ac120001',
          password: 'nok',
          createdAt: new Date(),
          updatedAt: new Date()
        },
        {
         id: "c7a9122e-6694-11ed-9022-0242ac120006",
-        firstName: 'John',
-        lastName: 'Doe',
-        secondName: 'Nok',
+        first_name: 'John',
+        last_name: 'Doe',
+        second_name: 'Nok',
         email: 'example@example3.com',
+        roleId: 'c7a9122e-6694-11ed-9022-0242ac120003',
         password: 'nok',
         createdAt: new Date(),
         updatedAt: new Date()

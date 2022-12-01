@@ -6,10 +6,16 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       studentId:{
         type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
+      classId:{
+        type: Sequelize .UUID,
         allowNull:false,
         foreignKey:true
       },

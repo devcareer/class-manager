@@ -26,7 +26,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       allowNull:false,
       foreignKey:true
-    }
+    },
+    classId:{
+      type: DataTypes.UUID,
+      allowNull:false,
+      foreignKey:true
+    },
   }, {
     sequelize,
     modelName: 'ClassStudent',

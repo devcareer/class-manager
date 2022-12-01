@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon --exec babel-node ./src/server.js",
     "watch:dev": "nodemon ./src/server.js",
+    "migrate":  "sequelize db:migrate",
+    "migrate:undo":  "sequelize db:migrate:undo:all",
+    "seed":  "sequelize db:seed:all",
     "build": "rm -rf ./build && babel -d ./build ./src -s",
     "lint": "eslint --ext .js .",
     "lint:check": "eslint .",
