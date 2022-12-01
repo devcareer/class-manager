@@ -5,9 +5,9 @@ module.exports = {
     await queryInterface.createTable('AssignmentScores', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       assignmentId: {
         type:Sequelize.STRING,
@@ -17,11 +17,12 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull:false
       },
-      studentId: {
-        type:Sequelize.STRING,
-        allowNull:false
+      teacherId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
       },
-      teacher: {
+      studentId: {
         type:Sequelize.STRING,
         allowNull:false
       },
