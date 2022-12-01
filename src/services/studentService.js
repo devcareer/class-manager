@@ -3,16 +3,16 @@ import database from '../db/models/index.js';
 class StudentService {
   static async getAllStudents() {
     try {
-      const result = await database.Student.findAll();
+      const result = await database.User.findAll();
       return result;
     } catch (error) {
       throw error;
     }
   }
-
+  
   static async addStudent(newStudent) {
     try {
-      const result = await database.Student.create(newStudent);
+      const result = await database.User.create(newStudent);
       return result;
     } catch (error) {
       throw error;
@@ -21,12 +21,12 @@ class StudentService {
 
   static async updateStudent(id, updateStudent) {
     try {
-      const studentToUpdate = await database.Student.findOne({
-        where: { id: Number(id) }
+      const studentToUpdate = await database.User.findOne({
+        where: { id: id }
       });
 
       if (studentToUpdate) {
-        await database.Student.update(updateStudent, { where: { id: Number(id) } });
+        await database.User.update(updateStudent, { where: { id: id } });
 
         return updateStudent;
       }
@@ -38,8 +38,8 @@ class StudentService {
 
   static async getAStudent(id) {
     try {
-      const aStudent = await database.Student.findOne({
-        where: { id: Number(id) }
+      const aStudent = await database.User.findOne({
+        where: { id: id }
       });
 
       return aStudent;
@@ -50,11 +50,11 @@ class StudentService {
 
   static async deleteStudent(id) {
     try {
-      const StudentToDelete = await database.Student.findOne({ where: { id: Number(id) } });
+      const StudentToDelete = await database.User.findOne({ where: { id: id } });
 
       if (StudentToDelete) {
-        const deletedStudent = await database.Student.destroy({
-          where: { id: Number(id) }
+        const deletedStudent = await database.User.destroy({
+          where: { id: id }
         });
         return deletedStudent;
       }
