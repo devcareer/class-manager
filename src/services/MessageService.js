@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import database from '../db/models/index.js';
 
 class MessageService {
@@ -22,11 +23,11 @@ class MessageService {
   static async updateMessage(id, updateMessage) {
     try {
       const messageToUpdate = await database.Message.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       if (messageToUpdate) {
-        await database.Message.update(updateMessage, { where: { id: Number(id) } });
+        await database.Message.update(updateMessage, { where: { id: id } });
 
         return updateMessage;
       }
@@ -39,7 +40,7 @@ class MessageService {
   static async getAMessage(id) {
     try {
       const aMessage = await database.Message.findOne({
-        where: { id: Number(id) }
+        where: { id: id}
       });
 
       return aMessage;
@@ -50,11 +51,11 @@ class MessageService {
 
   static async deleteMessage(id) {
     try {
-      const messageToDelete = await database.Message.findOne({ where: { id: Number(id) } });
+      const messageToDelete = await database.Message.findOne({ where: { id: id } });
 
       if (messageToDelete) {
         const deletedMessage = await database.Message.destroy({
-          where: { id: Number(id) }
+          where: { id: id }
         });
         return deletedMessage;
       }

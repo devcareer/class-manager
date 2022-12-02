@@ -1,6 +1,9 @@
+/* eslint-disable no-useless-catch */
 import database from '../db/models/index.js';
 
 class StudentService {
+  constructor() {
+  }
   static async getAllStudents() {
     try {
       const result = await database.User.findAll();

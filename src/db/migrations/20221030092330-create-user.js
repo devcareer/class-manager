@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         allowNull: false, type:Sequelize.STRING
       },
-      second_name: Sequelize.STRING,
+      secondName: Sequelize.STRING,
       email: {
         type:Sequelize.STRING,
         unique:true,
