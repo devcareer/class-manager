@@ -4,19 +4,6 @@ import Util from '../utils/Utils';
 const util = new Util();
 const handleSignup = async (req, res, next) => {
  try {
-    // try {
-    //     const allMessages = await MessageService.getAllMessages();
-    //     if (allMessages.length > 0) {
-    //       util.setSuccess(200, 'Messages retrieved', allMessages);
-    //     } else {
-    //       util.setSuccess(200, 'No Message found');
-    //     }
-    //     return util.send(res);
-    //   } catch (error) {
-    //     util.setError(400, error);
-    //     return util.send(res);
-    //   }
-
    const { firstName, lastName, secondName, email, roleId, password } = req.body;
    const user = await userService.findUser({email});
 
