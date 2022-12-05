@@ -105,6 +105,24 @@ class AssignmentController {
       return util.send(res);
     }
   }
+
+  static async uploadAssignment(req, res) {
+    const { id } = req.params;
+    if (!req.files) {
+      util.setError(400, 'Please select a file for upload');
+      return util.send(res);
+    }
+    const newUpload = req.files;
+    try {
+      await AssignmentService.uploadAssignment(newUpload, id);
+      util.setSuccess(201, 'Assignment Uploaded Successfully!');
+      return util.send(res);
+    } catch (error) {
+      util.setError(400, error.Assignment);
+      return util.send(res);
+    }
+  }
+
 }
 
 export default AssignmentController;

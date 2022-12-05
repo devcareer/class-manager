@@ -1,4 +1,5 @@
 import database from '../db/models/index.js';
+import path from 'path';
 
 class AssignmentService {
   static async getAllAssignments() {
@@ -63,6 +64,25 @@ class AssignmentService {
       throw error;
     }
   }
+
+  static async uploadAssignment(files, id) {
+    // const validator = await database.Message.findOne({
+    //   where: { id: Number(id) }
+    // })
+    // if(!validator){
+    //   util.setError(400, 'Please select a file for upload');
+    //   return util.send(res);
+    // }
+    try {
+      Object.keys(files).forEach(key => {
+        const filePath = path.join('./', 'files/assignmentSubmissions', `${id}`, files[key].name)
+        files[key].mv(filePath)
+      })
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
 
 export default AssignmentService;

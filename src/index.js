@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
-import { assignmentRouter } from './api/routers/assignmentRouter.js';
+import { assignmentRouter } from './routers/assignmentRouter.js';
 import messageRouter from "./routers/MessageRouter.js";
 import { studentRouter } from './routers/studentsRoutes.js';
-import { scoreRouter } from './routers/scoreRoutes.js';
+import scoreRouter from './routers/scoreRouter.js';
 const app = express();
 dotenv.config();
 
