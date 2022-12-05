@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
+      //User.hasOne(models.Token, {foreignKey: 'userId', as: 'userId'});
     }
   }
   User.init({
@@ -39,6 +40,11 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type:DataTypes.STRING,
       allowNull:false
+    },
+    verify: {
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue: false
     },
     roleId: {
       type: DataTypes.UUID,

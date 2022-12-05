@@ -1,5 +1,6 @@
 import userService  from "../services/userService";
 import Util from '../utils/Utils';
+import Verify from "../services/VerifyService";
 
 const util = new Util();
 const handleSignup = async (req, res, next) => {
@@ -8,12 +9,16 @@ const handleSignup = async (req, res, next) => {
    const user = await userService.findUser({email});
 
    if (user) {
+    const name = firstName+' '+lastName+' '+secondName;
+    await Verify.sendMail(name, email)
     util.setSuccess(200, 'Email already exists!');
      //throw new Error("Email already exists!");
    }else{
    // Create a token for the user
    const { token } = await userService.create({ firstName, lastName, secondName, email, roleId, password });
    const result = {token: token, user}
+   const name = firstName+' '+lastName+' '+secondName;
+   await Verify.sendMail(name, email)
    util.setSuccess(200, 'Registration Successful', result);
    }
    // Send a token to the client when a user signs up
