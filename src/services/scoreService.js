@@ -3,7 +3,7 @@ import database from '../db/models/index.js';
 class ScoreService {
   static async getAllScores() {
     try {
-      const result = await database.Score.findAll();
+      const result = await database.AssignmentScore.findAll();
       return result;
     } catch (error) {
       throw error;
@@ -12,7 +12,7 @@ class ScoreService {
 
   static async addScore(newScore) {
     try {
-      const result = await database.Score.create(newScore);
+      const result = await database.AssignmentScore.create(newScore);
       return result;
     } catch (error) {
       throw error;
@@ -21,12 +21,12 @@ class ScoreService {
 
   static async updateScore(id, updateScore) {
     try {
-      const ScoreToUpdate = await database.Score.findOne({
+      const scoreToUpdate = await database.AssignmentScore.findOne({
         where: { id: Number(id) }
       });
 
-      if (ScoreToUpdate) {
-        await database.Score.update(updateScore, { where: { id: Number(id) } });
+      if (scoreToUpdate) {
+        await database.AssignmentScore.update(updateScore, { where: { id: Number(id) } });
 
         return updateScore;
       }
@@ -36,13 +36,13 @@ class ScoreService {
     }
   }
 
-  static async getScore(id) {
+  static async getAScore(id) {
     try {
-      const Score = await database.Score.findOne({
+      const aScore = await database.AssignmentScore.findOne({
         where: { id: Number(id) }
       });
 
-      return Score;
+      return aScore;
     } catch (error) {
       throw error;
     }
@@ -50,10 +50,10 @@ class ScoreService {
 
   static async deleteScore(id) {
     try {
-      const ScoreToDelete = await database.Score.findOne({ where: { id: Number(id) } });
+      const scoreToDelete = await database.AssignmentScore.findOne({ where: { id: Number(id) } });
 
-      if (ScoreToDelete) {
-        const deletedScore = await database.Score.destroy({
+      if (scoreToDelete) {
+        const deletedScore = await database.AssignmentScore.destroy({
           where: { id: Number(id) }
         });
         return deletedScore;
