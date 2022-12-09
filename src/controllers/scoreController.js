@@ -1,12 +1,12 @@
-import ScoreService from '../services/ScoreService.js';
+import ScoreService from '../services/scoreService.js';
 import Util from '../utils/Utils.js';
 
 const util = new Util();
 
 class ScoreController {
-  static async getAllScore(req, res) {
+  static async getAllScores(req, res) {
     try {
-      const allScore = await ScoreService.getAllScores();
+      const allScores = await ScoreService.getAllScores();
       if (allScores.length > 0) {
         util.setSuccess(200, 'Scores retrieved', allScores);
       } else {
@@ -20,7 +20,7 @@ class ScoreController {
   }
 
   static async addScore(req, res) {
-    if (!req.body.Score || !req.body.senderId || !req.body.receiverId) {
+    if (!req.body.score || !req.body.assignmentId || !req.body.teacherId || !req.body.studentId) {
       util.setError(400, 'Please provide complete details');
       return util.send(res);
     }
@@ -30,7 +30,7 @@ class ScoreController {
       util.setSuccess(201, 'Score Added!', createdScore);
       return util.send(res);
     } catch (error) {
-      util.setError(400, error.Score);
+      util.setError(400, error);
       return util.send(res);
     }
   }
@@ -65,7 +65,7 @@ class ScoreController {
     }
 
     try {
-      const theScore = await ScoreService.getAScore(id);
+      const theScore = await ScoreService.getASore(id);
 
       if (!theScore) {
         util.setError(404, `Cannot find Score with the id ${id}`);

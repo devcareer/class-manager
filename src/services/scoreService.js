@@ -21,11 +21,11 @@ class ScoreService {
 
   static async updateScore(id, updateScore) {
     try {
-      const ScoreToUpdate = await database.AssignmentScore.findOne({
+      const scoreToUpdate = await database.AssignmentScore.findOne({
         where: { id: Number(id) }
       });
 
-      if (ScoreToUpdate) {
+      if (scoreToUpdate) {
         await database.AssignmentScore.update(updateScore, { where: { id: Number(id) } });
 
         return updateScore;
@@ -36,13 +36,13 @@ class ScoreService {
     }
   }
 
-  static async getScore(id) {
+  static async getAScore(id) {
     try {
-      const Score = await database.AssignmentScore.findOne({
+      const aScore = await database.AssignmentScore.findOne({
         where: { id: Number(id) }
       });
 
-      return Score;
+      return aScore;
     } catch (error) {
       throw error;
     }
@@ -50,9 +50,9 @@ class ScoreService {
 
   static async deleteScore(id) {
     try {
-      const ScoreToDelete = await database.AssignmentScore.findOne({ where: { id: Number(id) } });
+      const scoreToDelete = await database.AssignmentScore.findOne({ where: { id: Number(id) } });
 
-      if (ScoreToDelete) {
+      if (scoreToDelete) {
         const deletedScore = await database.AssignmentScore.destroy({
           where: { id: Number(id) }
         });

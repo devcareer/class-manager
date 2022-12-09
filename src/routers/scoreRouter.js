@@ -1,11 +1,12 @@
 import { Router } from 'express';
-import scoreController from '../controllers/scoreController.js';
+import ScoreController from '../controllers/scoreController.js';
 
 const scoreRouter = Router();
 
-
-scoreRouter.post('/', scoreController.addScore);
-scoreRouter.put('/:id', scoreController.updatedScore);
-scoreRouter.delete('/:id', scoreController.deleteScore);
+scoreRouter.get('/', ScoreController.getAllScores);
+scoreRouter.post('/', ScoreController.addScore);
+scoreRouter.get('/:id', ScoreController.getAScore);
+scoreRouter.put('/:id', ScoreController.updatedScore);
+scoreRouter.delete('/:id', ScoreController.deleteScore);
 
 export default scoreRouter;
