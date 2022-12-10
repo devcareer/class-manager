@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { assignmentRouter } from './routers/assignmentRouter.js';
 import messageRouter from "./routers/MessageRouter.js";
 import { studentRouter } from './routers/studentsRoutes.js';
-import { scoreRouter } from './routers/scoreRouter.js';
+
 const app = express();
 dotenv.config();
 
