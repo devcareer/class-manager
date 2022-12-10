@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/message', messageRouter);
 app.use('/api/students', studentRouter);
 app.use('/api/assignment', assignmentRouter);
-app.use('/api/score', scoreRouter);
+
 
 
 app.get('/', (req, res) => {
