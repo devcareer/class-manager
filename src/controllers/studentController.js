@@ -18,7 +18,7 @@ class StudentController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(400, error);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }
@@ -55,7 +55,7 @@ class StudentController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(404, error);
+      util.setError(404, error.message);
       return util.send(res);
     }
   }
@@ -78,7 +78,7 @@ class StudentController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(404, error);
+      util.setError(404, error.message);
       return util.send(res);
     }
   }
@@ -101,7 +101,7 @@ class StudentController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(400, error);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }

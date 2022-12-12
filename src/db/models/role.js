@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
+    slug: {
+      type: DataTypes.STRING
+    },
     role: {
       type: DataTypes.UUID,
       allowNull:false

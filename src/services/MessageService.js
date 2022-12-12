@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import database from '../db/models/index.js';
 
 class MessageService {

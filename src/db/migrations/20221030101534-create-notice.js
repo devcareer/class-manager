@@ -5,12 +5,22 @@ module.exports = {
     await queryInterface.createTable('Notices', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       notice: {
         type: Sequelize.STRING
+      },
+      classId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
+      },
+      teacherId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        foreignKey:true
       },
       createdAt: {
         allowNull: false,

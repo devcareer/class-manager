@@ -2,29 +2,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('AssignmentScores', {
+    await queryInterface.createTable('Tokens', {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4
+        type: Sequelize.UUID
       },
-      assignmentId: {
-        type:Sequelize.STRING,
-        allowNull:false
-      },
-      score: {
-        type:Sequelize.STRING,
-        allowNull:false
-      },
-      teacherId: {
-        type: Sequelize.UUID,
+      userId:{
+        type: Sequelize .UUID,
         allowNull:false,
         foreignKey:true
       },
-      studentId: {
-        type:Sequelize.STRING,
-        allowNull:false
+      token: {
+        type: Sequelize.STRING(1234)
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +27,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('AssignmentScores');
+    await queryInterface.dropTable('Tokens');
   }
 };
