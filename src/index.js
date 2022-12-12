@@ -5,6 +5,7 @@ import { initialize, authenticate,} from './middleware/auth.js';
 import messageRouter from "./routers/MessageRouter.js";
 import { studentRouter } from './routers/StudentsRoutes.js';
 import { userRouter } from './routers/UserRouter.js';
+import { assignmentRouter } from './routers/assignmentRouter.js'
 const app = express();
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use(initialize());
 app.use('/api/message', messageRouter);
 app.use('/api/students', studentRouter);
 app.use('/api/user', userRouter);
+app.use('/api/assignment', assignmentRouter);
+
 
 
 app.get('/', (req, res) => {

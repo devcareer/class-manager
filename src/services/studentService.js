@@ -2,6 +2,7 @@
 import database from '../db/models/index.js';
 
 const role = database.Role.findOne({where:{slug:  'sl_student'}})
+console.log(role.slug)
 class StudentService {
   constructor() {
   }
