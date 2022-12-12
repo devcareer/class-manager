@@ -20,9 +20,7 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-     id: "3f6a7b7c-e4fc-461c-b4a8-fd71485d90d2",
-          3f6a7b7c-e4fc-461c-b4a8-fd71485d90d2
-     
+     id: "c7a9122e-6694-11ed-9022-0242ac120002",
      slug:'sl_student',
      role: 'Student',
      createdAt: new Date(),
