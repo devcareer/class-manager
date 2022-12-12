@@ -2,9 +2,10 @@
 require("dotenv").config(); // loads the environment variables into process.env
 import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
-
+import Util from "../utils/Utils";
 import userService from "../services/userService";
 
+const util = new Util();
 const JWT_SECRET  = process.env.JWT_SECRET;
 
 // Create a new instance of the JWT Passport.js strategy
@@ -26,15 +27,14 @@ const strategy = new Strategy(
             const user = await userService.findUser({ id: jwtPayload.id });
 
             if (!user) {
-                const err = new Error("User not found");
-                err.statusCode = 404;
-                throw err;
+                util.setError(404, "User not found");
+                //throw erro;
             }
 
             // done is an error-first callback with signature done(error, user, info)
             // pass the found user to the route handler
             done(null, user);
-        } catch (error) {
+        }catch (error) {
             done(error);
         }
     }

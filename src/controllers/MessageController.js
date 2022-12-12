@@ -14,7 +14,7 @@ class MessageController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(400, error);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }
@@ -38,7 +38,7 @@ class MessageController {
   static async updatedMessage(req, res) {
     const alteredMessage = req.body;
     const { id } = req.params;
-    if (!Number(id)) {
+    if (id) {
       util.setError(400, 'Please input a valid numeric value');
       return util.send(res);
     }
@@ -51,7 +51,7 @@ class MessageController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(404, error);
+      util.setError(404, error.message);
       return util.send(res);
     }
   }
@@ -59,7 +59,7 @@ class MessageController {
   static async getAMessage(req, res) {
     const { id } = req.params;
 
-    if (!Number(id)) {
+    if (id) {
       util.setError(400, 'Please input a valid numeric value');
       return util.send(res);
     }
@@ -74,7 +74,7 @@ class MessageController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(404, error);
+      util.setError(404, error.message);
       return util.send(res);
     }
   }
@@ -82,7 +82,7 @@ class MessageController {
   static async deleteMessage(req, res) {
     const { id } = req.params;
 
-    if (!Number(id)) {
+    if (id) {
       util.setError(400, 'Please provide a numeric value');
       return util.send(res);
     }
@@ -97,7 +97,7 @@ class MessageController {
       }
       return util.send(res);
     } catch (error) {
-      util.setError(400, error);
+      util.setError(400, error.message);
       return util.send(res);
     }
   }

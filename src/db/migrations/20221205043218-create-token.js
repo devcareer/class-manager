@@ -5,9 +5,13 @@ module.exports = {
     await queryInterface.createTable('Tokens', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID
+      },
+      userId:{
+        type: Sequelize .UUID,
+        allowNull:false,
+        foreignKey:true
       },
       token: {
         type: Sequelize.STRING(1234)

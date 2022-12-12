@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const db = require('./index')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -16,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
-      //User.hasOne(models.Token, {foreignKey: 'userId', as: 'userId'});
+      User.hasOne(models.Token, {foreignKey: 'userId', as: 'user'});
     }
   }
   User.init({
@@ -49,7 +50,18 @@ module.exports = (sequelize, DataTypes) => {
     roleId: {
       type: DataTypes.UUID,
       allowNull:false
-    }
+    },
+  //   roleSlug: {
+  //     type: DataTypes.VIRTUAL,
+  //     get() {
+  //       const r = db.Role.findOne({
+  //         where: { id: this.roleId }
+  //       })
+  //       return `${r.slug}`;
+  //     },set(value) {
+  //       throw new Error('Do not try to set the `fullName` value!');
+  //     }
+  // }
   }, {
     sequelize,
     modelName: 'User',

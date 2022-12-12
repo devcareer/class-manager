@@ -12,18 +12,15 @@ const JWT_SECRET  = process.env.JWT_SECRET;
         
     try {
         if(id!= null){
-            console.log('name')
         const aUser = await users.findOne({
-                where: {id: email }
+                where: {id: id }
               });
               
               return aUser
         }else if(email !=null){
-            console.log('name')
       const aUser = await users.findOne({
         where: {email: email }
       });
-      console.log('name')
       return aUser;
     }
     } catch (error) {

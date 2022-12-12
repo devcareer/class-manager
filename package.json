@@ -9,6 +9,7 @@
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo:all",
     "seed": "sequelize db:seed:all",
+    "seed:undo": "sequelize db:seed:undo:all",
     "build": "rm -rf ./build && babel -d ./build ./src -s",
     "lint": "eslint --ext .js .",
     "lint:check": "eslint .",

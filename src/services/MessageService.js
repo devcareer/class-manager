@@ -23,11 +23,11 @@ class MessageService {
   static async updateMessage(id, updateMessage) {
     try {
       const messageToUpdate = await database.Message.findOne({
-        where: { id: id }
+        where: { id: Number(id) }
       });
 
       if (messageToUpdate) {
-        await database.Message.update(updateMessage, { where: { id: id } });
+        await database.Message.update(updateMessage, { where: { id: Number(id) } });
 
         return updateMessage;
       }
@@ -40,7 +40,7 @@ class MessageService {
   static async getAMessage(id) {
     try {
       const aMessage = await database.Message.findOne({
-        where: { id: id}
+        where: { id: Number(id) }
       });
 
       return aMessage;
@@ -51,11 +51,11 @@ class MessageService {
 
   static async deleteMessage(id) {
     try {
-      const messageToDelete = await database.Message.findOne({ where: { id: id } });
+      const messageToDelete = await database.Message.findOne({ where: { id: Number(id) } });
 
       if (messageToDelete) {
         const deletedMessage = await database.Message.destroy({
-          where: { id: id }
+          where: { id: Number(id) }
         });
         return deletedMessage;
       }

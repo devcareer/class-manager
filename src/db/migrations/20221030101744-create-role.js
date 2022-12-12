@@ -9,6 +9,9 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
+      slug: {
+        type: Sequelize.STRING
+      },
       role: {
         type: Sequelize.STRING
       },

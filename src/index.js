@@ -3,8 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { initialize, authenticate,} from './middleware/auth.js';
 import messageRouter from "./routers/MessageRouter.js";
-import { studentRouter } from './routers/studentsRoutes.js';
-import { userRouter } from './routers/userRouter.js';
+import { studentRouter } from './routers/StudentsRoutes.js';
+import { userRouter } from './routers/UserRouter.js';
 const app = express();
 dotenv.config();
 

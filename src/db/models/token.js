@@ -11,17 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      //Token.belongsTo(models.User, {foreignKey: 'userId', as: 'userId'});
+      Token.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});
     }
   }
   Token.init({
     id:{
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      allowNull:false,
-      primaryKey:true
-   },
-    token: DataTypes.STRING(1234),
+      primaryKey: true
+    },
+    token: DataTypes.STRING,
     userId:{
       type: DataTypes.UUID,
       allowNull:false,

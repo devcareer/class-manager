@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-catch */
 //import sendEmail  from "../utils/email";
-const sendEmail = require( "./emailServiceMailtrap.js");
+const sendEmail = require( "./EmailServiceMailtrap.js");
 const db = require( "../db/models/index.js");
 const crypto = require('crypto');
 

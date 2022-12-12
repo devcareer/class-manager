@@ -14,18 +14,23 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Roles', [{
       id: "c7a9122e-6694-11ed-9022-0242ac120001",
+      slug:'sl_admin',
       role: 'Admin',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
-     id: "c7a9122e-6694-11ed-9022-0242ac120002",
+     id: "3f6a7b7c-e4fc-461c-b4a8-fd71485d90d2",
+          3f6a7b7c-e4fc-461c-b4a8-fd71485d90d2
+     
+     slug:'sl_student',
      role: 'Student',
      createdAt: new Date(),
      updatedAt: new Date()
    },
    {
     id: "c7a9122e-6694-11ed-9022-0242ac120003",
+    slug:'sl_teacher',
     role: 'Teacher',
     createdAt: new Date(),
     updatedAt: new Date()

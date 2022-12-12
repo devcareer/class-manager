@@ -1,28 +1,25 @@
 /* eslint-disable no-useless-catch */
 require("dotenv").config();
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import database from '../db/models/index.js';
-import sendEmail from "./emailServiceMailtrap.js";
+// import sendEmail from "./EmailServiceMailtrap.js";
+import sendEmail from '../utils/email'
 import crypto from 'crypto';
+import UserService from "./userService.js";
 
 const users = database.User;
 const tokens = database.Token;
-const JWT_SECRET  = process.env.JWT_SECRET;
+const url = process.env.BASE_URL;
   class VerifyService {
     static  async sendMail (name, email) {
       try {
         let user = await this.findUser({ email })
-        console.log('verify1')
        if (user){
-        console.log('verify2')
       let token = await tokens.create({
         userId: user.id,
         token: crypto.randomBytes(32).toString("hex"),
       });
-      console.log('verify3')
-      const message = `${name} click this link to verify your email ${process.env.BASE_URL}/user/verify/${user.id}/${token.token}`;
-      await sendEmail.sendMail(email, "Verify Email", message);
+      const message = `${name} click this link to verify your email ${url}/user/verify/${user.id}/${token.token}`;
+      await sendEmail(email, "Verify Email", message);
        }else{
           return null
        }
@@ -47,28 +44,41 @@ const JWT_SECRET  = process.env.JWT_SECRET;
     }
   };
 
-// Save the new user to the database and return an authorization token for the user
-    static async create ({firstName, lastName, secondName, email, roleId, password }) {
 
-  const newUser = {
-    firstName,
-    lastName,
-    secondName,
-    email,
-    roleId,
-    password: await bcrypt.hash(password, 10)
-
+  static async verify(token, id) {
+    try {
+      const user = await UserService.findUser({ id });
+      if(!user){
+        return false
+      }
+      const userToken = await tokens.findOne({where:{
+        userId: user.id,
+        token: token,
+      }});
+      if (!userToken){ 
+        return false;
+    }else{
+      await users.update({ verified: true }, {
+        where: {
+          id: id
+        }
+      });;
+      await tokens.destroy({
+        where: {
+          userId: userToken.userId
+        }
+      });
+  
+    return true;
+    }
+    //   res.send("email verified sucessfully");
+    
+} catch (error) {
+    return error;//   res.status(400).send("An error occured");
+    }
   };
-  // save the new user to our database
-  const result = await users.create(newUser);
-  // Generate the JWT with jwt.sign. The return value is an
-  // authentication token
-  const token = jwt.sign({ id: result.id }, JWT_SECRET, {
-    expiresIn: 24 * 60 * 60, // Expire tokens after a certain amount of time so users can't stay logged in forever
-  });
 
-  return { token };
-};
+// Save the new user to the database and return an authorization token for the user
 
 
 }
