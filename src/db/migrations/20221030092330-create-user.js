@@ -6,15 +6,17 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        
+      defaultValue: Sequelize.UUIDV4,
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         allowNull: false, type:Sequelize.STRING
       },
-      second_name: Sequelize.STRING,
+      secondName: Sequelize.STRING,
       email: {
         type:Sequelize.STRING,
         unique:true,
@@ -23,6 +25,11 @@ module.exports = {
       password: {
         type:Sequelize.STRING,
         allowNull:false
+      },
+      verify: {
+        type:Sequelize.BOOLEAN,
+        allowNull:false,
+        defaultValue: false
       },
       roleId: {
         type: Sequelize.UUID,

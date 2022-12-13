@@ -20,14 +20,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull:false,
-      unique:true,
       primaryKey: true
     },
     studentId:{
       type: DataTypes.UUID,
       allowNull:false,
       foreignKey:true
-    }
+    },
+    classId:{
+      type: DataTypes.UUID,
+      allowNull:false,
+      foreignKey:true
+    },
   }, {
     sequelize,
     modelName: 'ClassStudent',

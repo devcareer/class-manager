@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const db = require('./index')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
+      User.hasOne(models.Token, {foreignKey: 'userId', as: 'user'});
     }
   }
   User.init({
@@ -25,13 +27,13 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    first_name: {
+    firstName: {
       allowNull: false, type:DataTypes.STRING
     },
-    last_name: {
+    lastName: {
       allowNull: false, type:DataTypes.STRING
     },
-    second_name: DataTypes.STRING,
+    secondName: DataTypes.STRING,
     email: {
       type:DataTypes.STRING,
       unique:true,
@@ -41,10 +43,26 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
+    verify: {
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue: false
+    },
     roleId: {
       type: DataTypes.UUID,
       allowNull:false
-    }
+    },
+  //   roleSlug: {
+  //     type: DataTypes.VIRTUAL,
+  //     get() {
+  //       const r = db.Role.findOne({
+  //         where: { id: this.roleId }
+  //       })
+  //       return `${r.slug}`;
+  //     },set(value) {
+  //       throw new Error('Do not try to set the `fullName` value!');
+  //     }
+  // }
   }, {
     sequelize,
     modelName: 'User',
