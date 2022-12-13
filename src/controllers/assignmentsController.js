@@ -10,9 +10,7 @@ class AssignmentController {
 
   static async getAllAssignments(req, res) {
     try {
-      console.log('controller')
       const allAssignments = await AssignmentService.getAllAssignments();
-      console.log('controller2')
       if (allAssignments.length > 0) {
         util.setSuccess(200, 'Assignments retrieved', allAssignments);
       } else {

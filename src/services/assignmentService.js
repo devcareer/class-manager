@@ -9,14 +9,6 @@ class AssignmentService {
     } catch (error) {
       throw error;
     }
-    // try {
-    //   console.log('service')
-    //   const result = await database.Assignment.findAll();
-    //   console.log('service1')
-    //   return result;
-    // } catch (error) {
-    //   throw error;
-    // }
   }
 
   static async addAssignment(newAssignment) {
