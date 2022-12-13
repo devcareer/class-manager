@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import database from '../db/models/index.js';
 
 class AssignmentService {
@@ -8,6 +9,14 @@ class AssignmentService {
     } catch (error) {
       throw error;
     }
+    // try {
+    //   console.log('service')
+    //   const result = await database.Assignment.findAll();
+    //   console.log('service1')
+    //   return result;
+    // } catch (error) {
+    //   throw error;
+    // }
   }
 
   static async addAssignment(newAssignment) {
@@ -22,11 +31,11 @@ class AssignmentService {
   static async updateAssignment(id, updateAssignment) {
     try {
       const AssignmentToUpdate = await database.Assignment.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       if (AssignmentToUpdate) {
-        await database.Assignment.update(updateAssignment, { where: { id: Number(id) } });
+        await database.Assignment.update(updateAssignment, { where: { id: id } });
 
         return updateAssignment;
       }
@@ -36,10 +45,10 @@ class AssignmentService {
     }
   }
 
-  static async getAAssignment(id) {
+  static async getAssignment(id) {
     try {
       const aAssignment = await database.Assignment.findOne({
-        where: { id: Number(id) }
+        where: { id: id }
       });
 
       return aAssignment;
@@ -50,11 +59,11 @@ class AssignmentService {
 
   static async deleteAssignment(id) {
     try {
-      const AssignmentToDelete = await database.Assignment.findOne({ where: { id: Number(id) } });
+      const AssignmentToDelete = await database.Assignment.findOne({ where: { id: id } });
 
       if (AssignmentToDelete) {
         const deletedAssignment = await database.Assignment.destroy({
-          where: { id: Number(id) }
+          where: { id: id }
         });
         return deletedAssignment;
       }
