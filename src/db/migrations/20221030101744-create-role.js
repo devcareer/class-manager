@@ -5,9 +5,12 @@ module.exports = {
     await queryInterface.createTable('Roles', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
+      },
+      slug: {
+        type: Sequelize.STRING
       },
       role: {
         type: Sequelize.STRING

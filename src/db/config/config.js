@@ -1,13 +1,11 @@
-'use strict';
-const  config = require('../../../config.js')
-
+require('dotenv').config();
 module.exports = {
-  "development": {
-    "username": config.username,
-    "password": config.password,
-    "database": config.database,
-    "host": config.host,
-    "dialect": "postgres"
+  development: {
+    database: "classManager",
+    username: "postgres",
+    password: "123456789",
+    host: "127.0.0.1",
+    dialect: "postgres"
   },
   local: {
     "username": "tgsowrsnnwphjg",
@@ -31,3 +29,4 @@ module.exports = {
     "dialect": "postgres"
   }
 };
+//export default config;
