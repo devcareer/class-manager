@@ -42,10 +42,10 @@ class teacherController {
   static async updatedTeacher(req, res) {
     const alteredTeacher = req.body;
     const { id } = req.params;
-    if (!util.checkIfValidUUID(id)) {
-      util.setError(400, 'Please input a valid Id');
-      return util.send(res);
-    }
+    // if (!util.checkIfValidUUID(id)) {
+    //   util.setError(400, 'Please input a valid Id');
+    //   return util.send(res);
+    // }
     try {
       const updateTeacher = await TeacherService.updateTeacher(id, alteredTeacher);
       if (!updateTeacher) {
@@ -63,10 +63,10 @@ class teacherController {
   static async getATeacher(req, res) {
     const { id } = req.params;
 
-    if (!util.checkIfValidUUID(id)) {
-      util.setError(400, 'Please input a valid numeric value');
-      return util.send(res);
-    }
+    // if (!util.checkIfValidUUID(id)) {
+    //   util.setError(400, 'Please input a valid numeric value');
+    //   return util.send(res);
+    // }
 
     try {
       const theTeacher = await TeacherService.getATeacher(id);
@@ -99,10 +99,10 @@ class teacherController {
   static async deleteTeacher(req, res) {
     const { id } = req.params;
 
-    if (!util.checkIfValidUUID(id)) {
-      util.setError(400, 'Please provide a numeric value');
-      return util.send(res);
-    }
+    // if (!util.checkIfValidUUID(id)) {
+    //   util.setError(400, 'Please provide a numeric value');
+    //   return util.send(res);
+    // }
 
     try {
       const teacherToDelete = await TeacherService.deleteTeacher(id);
