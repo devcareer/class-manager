@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       User.hasMany(models.Message, {foreignKey: 'receiverId', as: 'receiver'});
       User.belongsTo(models.Role, {foreignKey: 'roleId', as: 'role'})
+      User.hasMany(models.Class, {foreignKey: 'classId', as: 'class'});
+      User.hasMany(models.User, {foreignKey: 'teacherId', as: 'teacher'});
     }
   }
   User.init({

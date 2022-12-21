@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   ClassTeacher.init({
     id:{
       type: DataTypes.UUID,
+      defaultValue:DataTypes.UUIDV4,
       allowNull:false,
       primaryKey: true
     },
